@@ -4,12 +4,14 @@ import { Inter, Playfair_Display } from "next/font/google"
 import { ChatWidget } from "@/src/components/chat/ChatWidget"
 import { Footer } from "@/components/layout/Footer"
 import { Navbar } from "@/components/layout/Navbar"
+import { SmoothScrollHandler } from "@/components/motion/smooth-scroll-handler"
 import { ThemeProvider } from "@/components/theme-provider"
 import {
   DEFAULT_OG_IMAGE,
   OG_IMAGE_ALT,
+  SCROLL_PADDING_TOP,
+  ORGANIZATION_SAME_AS,
   SITE_DESCRIPTION,
-  SITE_FAVICON_PATH,
   SITE_LOGO_PATH,
   SITE_NAME,
   SITE_URL,
@@ -43,17 +45,13 @@ const jsonLd = {
     "@type": "Country",
     name: "España",
   },
+  sameAs: ORGANIZATION_SAME_AS,
 }
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  icons: {
-    icon: SITE_FAVICON_PATH,
-    shortcut: SITE_FAVICON_PATH,
-    apple: SITE_FAVICON_PATH,
-  },
   title: {
-    default: `${SITE_NAME} · Ventas B2B, embudos e IA`,
+    default: `${SITE_NAME} · Vende más, embudos e IA para B2B`,
     template: `%s · ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -94,6 +92,11 @@ export default function RootLayout({
       lang="es"
       suppressHydrationWarning
       className={cn("antialiased", inter.variable, playfair.variable)}
+      style={
+        {
+          "--scroll-padding-top": SCROLL_PADDING_TOP,
+        } as React.CSSProperties
+      }
     >
       <body className="min-h-svh bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50">
         <script
@@ -103,6 +106,7 @@ export default function RootLayout({
           }}
         />
         <ThemeProvider>
+          <SmoothScrollHandler />
           <Navbar />
           <main>{children}</main>
           <Footer />

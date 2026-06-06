@@ -25,7 +25,7 @@ import {
 import type { HomeFaqItem } from "@/lib/types"
 
 const homeOgDescription =
-  "Escalamos ventas B2B con embudos, automatización con IA y presencia digital para equipos comerciales en España. Landing larga con metodología, testimonios y FAQ."
+  "Vende más y renueva tu presencia digital con Impacto Estudio: embudos B2B, automatización comercial con IA y web corporativa con KPIs medibles para equipos en España."
 
 const homeOgUrl = SITE_URL.replace(/\/?$/, "")
 

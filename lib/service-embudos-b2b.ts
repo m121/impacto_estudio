@@ -1,6 +1,6 @@
 import type { EmbudosB2bLandingData } from "@/lib/types"
 
-import { SITE_NAME } from "@/lib/constants"
+import { ILLUSTRATIONS, SITE_NAME } from "@/lib/constants"
 
 export const EMBUDOS_B2B_SERVICE_PATH = "/servicios/embudos-b2b" as const
 
@@ -30,12 +30,11 @@ export const embudosB2bLandingData: EmbudosB2bLandingData = {
     primaryCtaLabel: "Auditar mi proceso de ventas",
     primaryCtaHref: "#cualificar",
     image: {
-      src:
-        "/images/automatizacion.png",
+      src: ILLUSTRATIONS.orderStatus,
       alt:
-        "Diagrama de flujo de automatización de embudo B2B en entorno oscuro con acentos neón cian",
-      width: 1200,
-      height: 800,
+        "Ilustración de embudo B2B con etapas de captación, cualificación y reuniones comerciales",
+      width: 800,
+      height: 600,
     },
   },
   problem: {

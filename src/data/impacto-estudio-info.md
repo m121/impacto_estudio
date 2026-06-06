@@ -2,29 +2,38 @@
 
 ## Quiénes somos
 
-Impacto Estudio es una **agencia de marketing y crecimiento B2B** en España. Ayudamos a empresas a **generar oportunidades comerciales de mayor ticket** con enfoque en embudos, automatización y experiencia digital.
+Impacto Estudio es una **agencia de crecimiento B2B** en España. Ayudamos a marcas a **vender más** y **renovar su presencia digital** con embudos medibles, automatización comercial con IA y web corporativa orientada a conversión.
 
 ## Servicios principales
 
-- **Embudos de captación B2B:** sistemas para pasar de visitantes anónimos a reuniones cualificadas; captación por intención, cualificación con formularios y scoring, nutrición omnicanal e integración con CRM (p. ej. HubSpot, Pipedrive).
-- **Automatización comercial con IA:** cualificación de leads, rutas hacia CRM y mensajes alineados al ICP (siempre con proceso y compliance definidos con el cliente).
-- **Presencia digital y desarrollo:** marca corporativa high-ticket, UI/UX en **Next.js**, Core Web Vitals y optimización **SEO / búsqueda generativa (GEO)** con datos estructurados cuando aplica.
+1. **Automatización comercial con IA** (landing dedicada: `/servicios/automatizacion-ia`)
+   - Vender por **WhatsApp, Instagram, web chat, email** y otros canales.
+   - IA conectada al **CRM de preferencia** del cliente (Kommo, Brevo, HubSpot, Pipedrive…).
+   - Cualificación 24/7, handoff a ventas, KPIs por canal (respuesta, SQL, cierre).
+   - *Este pitch detallado vive en la landing de IA, no en la home.*
 
-## Propuesta de valor
+2. **Embudos B2B**
+   - De visitante anónimo a reunión cualificada: captación, scoring, nurturing, integración CRM.
 
-- Priorizamos **pipelines medibles** (atribución, CPL, conversión por etapa) frente a tácticas aisladas.
-- Trabajamos con **tomadores de decisión B2B** y ciclos consultivos; el tono y los entregables reflejan ese nivel de exigencia.
+3. **Presencia digital**
+   - Renovar marca y web corporativa (Next.js), Core Web Vitals, SEO/GEO, autoridad para decisores.
+
+## Propuesta de valor (home)
+
+- **Vende más** con sistemas medibles, no tácticas aisladas.
+- **Renueva tu presencia digital** para transmitir confianza y convertir tráfico.
+- KPIs que dirección puede auditar: SQL, pipeline, coste por oportunidad, velocidad hasta cierre.
 
 ## Inversión orientativa
 
-- **Presupuesto mínimo de referencia: 1.000 €** para proyectos cerrados con alcance acotado (puede variar según alcance y stack; nunca prometer cifras concretas sin diagnóstico).
-- En todos los casos se **invita primero a una auditoría gratuita** para alinear expectativas, encaje ICP y siguiente paso (sin compromiso de compra por el solo hecho de la auditoría).
+- **Presupuesto mínimo de referencia: 1.000 €** para proyectos con alcance acotado.
+- Primero **auditoría gratuita** (marca, embudo, canales, CRM) sin compromiso.
 
-## Próximo paso recomendado
+## Próximo paso
 
-1. **Auditoría gratuita** para revisar embudo, herramientas (CRM, web, datos) y objetivos.
-2. Si hay encaje, se define propuesta con alcance, hitos y métricas.
+1. Auditoría gratuita según objetivo (web, embudo, IA multicanal o combinación).
+2. Propuesta con alcance, hitos y KPIs acordados.
 
-## Contacto / lead
+## Contacto
 
-- El canal preferido para leads cualificados es el **formulario de contacto** del sitio y/o dejar **email corporativo** para que el equipo responda con siguiente reunión o aclaraciones.
+- Formulario del sitio o email corporativo para agendar auditoría.

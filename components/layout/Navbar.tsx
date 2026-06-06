@@ -32,14 +32,14 @@ export function Navbar({ className }: { className?: string }) {
             <Button key={link.href} variant="ghost" size="sm" asChild>
               <Link
                 href={link.href}
-                className="text-slate-300 hover:text-slate-50"
+                className="text-slate-300  hover:text-black"
               >
                 {link.label}
               </Link>
             </Button>
           ))}
           <Button size="sm" className="ml-2 shadow-md shadow-brand-pink/20" asChild>
-            <Link href="/#cualificar">Cualificar proyecto</Link>
+            <Link target="_blank" href="https://tr.ee/ncIMJqO4w9">Cualificar proyecto</Link>
           </Button>
         </nav>
 
@@ -63,7 +63,7 @@ export function Navbar({ className }: { className?: string }) {
                 </Button>
               ))}
               <Button size="sm" className="mt-1 shadow-md shadow-brand-pink/20" asChild>
-                <Link href="/#cualificar">Cualificar proyecto</Link>
+                <Link target="_blank" href="https://tr.ee/ncIMJqO4w9">Cualificar proyecto</Link>
               </Button>
             </div>
           </div>

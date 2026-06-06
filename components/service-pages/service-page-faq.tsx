@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { ScrollReveal } from "@/components/motion/scroll-reveal"
 import type { HomeFaqItem } from "@/lib/types"
 
 type ServicePageFaqProps = {
@@ -28,24 +29,31 @@ export function ServicePageFaq({
 
   return (
     <section
-      className="border-y border-slate-200 bg-slate-50 px-4 py-16 dark:border-slate-800 dark:bg-slate-900/50 sm:px-6 sm:py-20"
+      className="border-y border-slate-200 bg-white px-4 py-16 sm:px-6 sm:py-24"
       aria-labelledby={headingId}
     >
       <div className="mx-auto max-w-3xl">
+        <ScrollReveal>
         <header className="mb-10 text-center">
-          <p className="text-xs font-medium tracking-wide text-brand-cyan uppercase">
+          <p className="text-xs font-medium tracking-[0.2em] text-brand-cyan uppercase">
             {eyebrow}
           </p>
           <h2
             id={headingId}
-            className="font-heading mt-2 text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl"
+            className="font-heading mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
           >
             {title}
           </h2>
           <p className="mt-4 text-muted-foreground">{subtitle}</p>
         </header>
+        </ScrollReveal>
 
-        <Accordion type="single" collapsible className="w-full">
+        <ScrollReveal delay={0.08}>
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4"
+        >
           {items.map((item, index) => (
             <AccordionItem
               key={`${slug}-faq-${index}`}
@@ -60,6 +68,7 @@ export function ServicePageFaq({
             </AccordionItem>
           ))}
         </Accordion>
+        </ScrollReveal>
       </div>
     </section>
   )

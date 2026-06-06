@@ -1,7 +1,36 @@
 export const SITE_NAME = "Impacto Estudio"
 
+/** Colores de marca Impacto Estudio */
+export const BRAND_PINK = "#F84677"
+export const BRAND_CYAN = "#00C1D5"
+
+/** Offset para anchor links con navbar sticky (`scroll-padding-top`). */
+export const SCROLL_PADDING_TOP = "5.5rem"
+
+/** Ilustraciones unDraw en `public/images/illustrations/`. */
+export const ILLUSTRATIONS = {
+  aiAnswers: "/images/illustrations/undraw_ai-answers_uxgx.png",
+  approve: "/images/illustrations/undraw_approve_4ahx.png",
+  booking: "/images/illustrations/undraw_booking_8vl5.png",
+  color: "/images/illustrations/color.png",
+  controlPanel: "/images/illustrations/undraw_control-panel_s0j2.png",
+  designTools: "/images/illustrations/undraw_design-tools_wgpz.png",
+  designer: "/images/illustrations/undraw_designer_efwz.png",
+  financeGuy: "/images/illustrations/undraw_finance-guy-avatar_vhop.png",
+  goingDown: "/images/illustrations/undraw_going-downwards_wb62.png",
+  llm: "/images/illustrations/undraw_large-language-models_m4no.png",
+  onlineStats: "/images/illustrations/undraw_online-stats_d57c.png",
+  orderStatus: "/images/illustrations/undraw_order-status_swsl.png",
+  reviewingDesign: "/images/illustrations/undraw_reviewing-design_payz.png",
+  reviews: "/images/illustrations/undraw_reviews_bmgj.png",
+  socialMedia: "/images/illustrations/undraw_social-media-profile_hjh9.png",
+  webDeveloper: "/images/illustrations/undraw_web-developer_gxaa.png",
+  webDevelopment: "/images/illustrations/undraw_web-development_f0tp.png",
+  websiteVisitors: "/images/illustrations/undraw_website-visitors_qy9c.png",
+} as const
+
 export const SITE_DESCRIPTION =
-  "Agencia española de marketing high-ticket: embudos B2B, automatización de ventas con IA y presencia digital orientada a captación de leads."
+  "Agencia B2B en España: vende más con embudos medibles, automatización comercial con IA y presencia digital que renueva tu marca y convierte tráfico en oportunidades."
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.impactoestudio.online"
@@ -9,8 +38,8 @@ export const SITE_URL =
 /** Logo de marca en Navbar / JSON-LD Organization. En `public/images/logo.png`. */
 export const SITE_LOGO_PATH = "/images/logo.png"
 
-/** Favicon e iconos del documento. En `public/favi.png`. */
-export const SITE_FAVICON_PATH = "/images/logo.png"
+/** Favicon circular de marca — generado en `src/app/icon.svg` (convención Next.js). */
+export const SITE_FAVICON_PATH = "/icon.svg"
 
 /** Imagen Open Graph por defecto (URL absoluta para crawlers). */
 export const DEFAULT_OG_IMAGE =
@@ -18,133 +47,138 @@ export const DEFAULT_OG_IMAGE =
   "/images/public.png"
 
 export const OG_IMAGE_ALT =
-  "Impacto Estudio — agencia de marketing B2B high-ticket con embudos e IA en España"
+  "Impacto Estudio — agencia B2B de crecimiento comercial, embudos, IA y presencia digital en España"
 
 /** Hero above-the-fold (sustituir por `/images/hero-bg.jpg` en public cuando exista el asset). */
 export const HERO_MAIN_IMAGE = {
   src:
     process.env.NEXT_PUBLIC_HERO_IMAGE_SRC ??
-    "/images/dashboard.png",
-  alt: "Dashboard de automatización de leads B2B con IA mostrando pipeline comercial, métricas de embudo y estado de oportunidades",
-  width: 1200,
-  height: 800,
+    ILLUSTRATIONS.onlineStats,
+  alt: "Ilustración de estadísticas online y métricas de crecimiento comercial B2B",
+  width: 800,
+  height: 600,
 } as const
+
+export const HERO_PILLS = [
+  "Embudos B2B",
+  "IA multicanal",
+  "Presencia digital",
+] as const
 
 export const TRUST_LOGOS = [
   {
-    src: "https://placehold.co/160x48/0f172a/94a3b8/png?text=Next.js",
+    src: "/images/nextjs-logo.svg",
     alt: "Logo Next.js — framework frontend para aplicaciones web corporativas de alto rendimiento",
-    width: 160,
-    height: 48,
+    width: 197,
+    height: 40,
   },
   {
-    src: "https://placehold.co/160x48/0f172a/94a3b8/png?text=OpenAI",
+    src: "/images/openai-logo.svg",
     alt: "Logo OpenAI — modelos de lenguaje para automatización comercial y asistentes B2B",
-    width: 160,
-    height: 48,
+    width: 148,
+    height: 40,
   },
   {
-    src: "https://placehold.co/160x48/0f172a/94a3b8/png?text=HubSpot",
-    alt: "Logo HubSpot CRM — integración con embudos de ventas y nurturing de leads",
-    width: 160,
-    height: 48,
+    src: "/images/brevo-logo.svg",
+    alt: "Logo Brevo CRM — email marketing, automatización y CRM para nurturing de leads B2B",
+    width: 137,
+    height: 40,
   },
   {
-    src: "https://placehold.co/160x48/0f172a/94a3b8/png?text=Vercel",
+    src: "/images/kommo-logo.png",
+    alt: "Logo Kommo CRM — gestión comercial, pipelines y seguimiento de oportunidades B2B",
+    width: 188,
+    height: 40,
+  },
+  {
+    src: "/images/vercel-logo.svg",
     alt: "Logo Vercel — despliegue edge y Core Web Vitals para landings B2B",
-    width: 160,
-    height: 48,
-  },
-  {
-    src: "https://placehold.co/160x48/0f172a/94a3b8/png?text=Stripe",
-    alt: "Logo Stripe — pagos y suscripciones en flujos de venta high-ticket",
-    width: 160,
-    height: 48,
-  },
-  {
-    src: "https://placehold.co/160x48/0f172a/94a3b8/png?text=Make",
-    alt: "Logo Make — automatización de workflows entre CRM, email y herramientas de ventas",
-    width: 160,
-    height: 48,
+    width: 175,
+    height: 40,
   },
 ] as const
 
 export const HOME_PROBLEM_IMAGE = {
-  src: "/images/metricas.png",
-  alt: "Gráfico ilustrativo de métricas de generación de leads B2B estancadas sin tendencia de crecimiento de oportunidades calificadas",
-  width: 960,
-  height: 640,
+  src: ILLUSTRATIONS.goingDown,
+  alt: "Ilustración de métricas de captación B2B en descenso sin tendencia de oportunidades cualificadas",
+  width: 800,
+  height: 600,
 } as const
+
+export const HOME_PROBLEM_SIGNALS = [
+  "Embudo difuso sin KPIs por etapa",
+  "Presencia digital que no transmite autoridad",
+  "Ventas persiguiendo leads sin scoring",
+] as const
 
 export const HOME_FEATURE_BLOCKS = [
   {
-    title: "Desarrollo Next.js ultrarrápido",
+    title: "Automatización comercial con IA",
     description:
-      "Sitios y landings en App Router con imágenes optimizadas y streaming: mejor LCP, más confianza percibida y más reuniones con decisores.",
-    imageSrc:
-      "/images/web.jpg",
+      "Vende por WhatsApp, Instagram, web chat y más con agentes conectados a tu CRM. Cualificación, seguimiento y handoff a ventas cuando hay intención real.",
+    imageSrc: ILLUSTRATIONS.aiAnswers,
     imageAlt:
-      "Representación de aplicación web corporativa construida con Next.js mostrando métricas de rendimiento y experiencia fluida",
+      "Ilustración de asistente con IA respondiendo consultas comerciales en canales digitales",
     wide: true,
-    icon: "cpu",
-    learnMoreHref: "/servicios/presencia-digital",
-  },
-  {
-    title: "Cualificación con IA 24/7",
-    description:
-      "Asistentes que responden en contexto, filtran intención y alimentan el CRM sin quemar tiempo de ventas en leads fríos.",
-    imageSrc:
-      "/images/chatbot.png",
-    imageAlt:
-      "Captura conceptual de interfaz de chatbot de cualificación B2B integrado con datos de contacto y scoring",
-    wide: false,
     icon: "bot",
     learnMoreHref: "/servicios/automatizacion-ia",
   },
   {
     title: "Embudos B2B medibles",
     description:
-      "Arquitectura de funnel por etapa con KPIs claros: SQL, coste por reunión y velocidad hasta propuesta.",
-    imageSrc:
-      "/images/embudo.png",
+      "De visitante anónimo a reunión cualificada: captación por intención, scoring, nurturing y KPIs por etapa del pipeline.",
+    imageSrc: ILLUSTRATIONS.websiteVisitors,
     imageAlt:
-      "Diagrama de embudo de ventas B2B con etapas de descubrimiento, cualificación y cierre comercial",
+      "Ilustración de visitantes web convirtiéndose en oportunidades del embudo B2B",
     wide: false,
     icon: "funnel",
     learnMoreHref: "/servicios/embudos-b2b",
   },
   {
-    title: "Presencia que vende, no adorna",
+    title: "Presencia digital que vende",
     description:
-      "Mensajes alineados a ticket medio y ciclo consultivo: autoridad, prueba social y CTAs que invitan al siguiente paso.",
-    imageSrc:
-      "/images/roi.png",
+      "Renueva tu marca y tu web con Next.js: autoridad percibida, Core Web Vitals y mensajes alineados a decisores de alto ticket.",
+    imageSrc: ILLUSTRATIONS.reviewingDesign,
     imageAlt:
-      "Mockup de página corporativa B2B con propuesta de valor clara y llamadas a la acción orientadas a conversión",
+      "Ilustración de revisión de diseño corporativo y marca digital orientada a conversión",
+    wide: false,
+    icon: "cpu",
+    learnMoreHref: "/servicios/presencia-digital",
+  },
+  {
+    title: "Resultados que dirección puede auditar",
+    description:
+      "SQL, coste por oportunidad, velocidad hasta propuesta y pipeline por canal. Sin vanity metrics: lo que importa al comité comercial.",
+    imageSrc: ILLUSTRATIONS.controlPanel,
+    imageAlt:
+      "Ilustración de panel de control con KPIs comerciales, embudo y rendimiento por canal",
     wide: true,
     icon: "megaphone",
-    learnMoreHref: "/servicios/presencia-digital",
+    learnMoreHref: "/servicios/embudos-b2b",
   },
 ] as const
 
 export const HOME_METHODOLOGY_STEPS = [
   {
     step: 1,
-    title: "Auditoría y diagnóstico",
+    title: "Auditoría de marca y embudo",
     description:
-      "Analizamos embudo actual, datos del CRM, velocidad web y mensajes frente a tu cuenta objetivo. Salida: mapa de fugas y prioridades.",
+      "Revisamos presencia digital, canales de captación, CRM y mensajes frente a tu ICP. Salida: mapa de fugas, prioridades y KPIs base.",
+    cycleLabel: "Diagnosticar",
   },
   {
     step: 2,
-    title: "Diseño y desarrollo",
+    title: "Diseño e implementación",
     description:
-      "Implementamos web o landing en Next.js, contenidos y automatizaciones (IA + integraciones) con entregables por sprint y QA.",
+      "Ejecutamos el mix acordado — web, embudo, IA multicanal o combinación — con entregables por sprint, integraciones y QA.",
+    cycleLabel: "Ejecutar",
   },
   {
     step: 3,
     title: "Escalamiento y optimización",
     description:
-      "Iteramos según datos: A/B en páginas clave, prompts y secuencias de seguimiento, reporting ejecutivo para dirección comercial.",
+      "Iteramos según datos: A/B en landings, secuencias comerciales, prompts de IA y reporting ejecutivo para dirección.",
+    cycleLabel: "Optimizar",
   },
 ] as const
 
@@ -160,20 +194,20 @@ export const HOME_TESTIMONIALS = [
     roiSrc:
       "https://placehold.co/400x120/f1f5f9/334155/png?text=Antes+vs+Después+SQL",
     roiAlt:
-      "Gráfico comparativo antes y después del número de reuniones SQL cualificadas tras implementar embudo B2B",
+      "Gráfico comparativo antes y después del número de reuniones SQL cualificadas tras proyecto con Impacto Estudio",
   },
   {
     quote:
-      "La IA como filtro inicial nos liberó a ventas para cerrar. La web nueva en Next.js mejoró la confianza desde el primer clic.",
+      "Renovaron nuestra web y conectaron IA en varios canales al CRM. Ventas cierra; el sistema filtra. Pipeline +38% en el primer trimestre.",
     name: "Marc Iglesias",
     role: "CEO · Consultora industrial",
     avatarSrc: "https://placehold.co/96x96/475569/ffffff/png?text=MI",
     avatarAlt:
-      "Retrato profesional estilizado de Marc Iglesias, CEO testimonio automatización comercial",
+      "Retrato profesional estilizado de Marc Iglesias, CEO testimonio Impacto Estudio",
     roiSrc:
       "https://placehold.co/400x120/f1f5f9/334155/png?text=Pipeline+%2B38%25",
     roiAlt:
-      "Indicador de evolución positiva del pipeline comercial tras proyecto de automatización con IA",
+      "Indicador de evolución positiva del pipeline comercial tras proyecto integral de crecimiento B2B",
   },
   {
     quote:
@@ -186,47 +220,47 @@ export const HOME_TESTIMONIALS = [
     roiSrc:
       "https://placehold.co/400x120/f1f5f9/334155/png?text=Coste%2Freuni%C3%B3n+-22%25",
     roiAlt:
-      "Comparativa de coste por reunión comercial antes y después del rediseño del embudo",
+      "Comparativa de coste por reunión comercial antes y después del rediseño del embudo y presencia digital",
   },
 ] as const
 
 export const HOME_FAQ_ITEMS = [
   {
-    question: "¿Cuánto tarda en implementarse un sistema de IA para cualificación?",
+    question: "¿Qué servicios ofrece Impacto Estudio?",
     answer:
-      "Un primer flujo en producción suele estar entre 3 y 8 semanas según integraciones (CRM, email, calendario) y volumen de contenidos. Empezamos por un piloto acotado para validar tono y calidad de leads antes de escalar.",
-  },
-  {
-    question: "¿Por qué Next.js para una web o landing B2B?",
-    answer:
-      "Next.js (App Router) combina renderizado híbrido, imágenes optimizadas con next/image y rutas claras para SEO/GEO. Para compradores B2B, la velocidad percibida y la estabilidad aumentan confianza y reducen abandono en páginas largas.",
+      "Tres líneas complementarias: automatización comercial con IA (multicanal + CRM), embudos B2B medibles y presencia digital corporativa en Next.js. Muchos clientes combinan web + embudo + IA en un roadmap por fases.",
   },
   {
     question: "¿Trabajáis solo con empresas en España?",
     answer:
-      "Nuestro foco operativo y fiscal es España y Latinoamérica hispanohablante con equipos comerciales locales. Valoramos proyectos internacionales cuando el ICP y el proceso de venta están alineados.",
+      "Nuestro foco operativo es España y Latinoamérica hispanohablante con equipos comerciales locales. Valoramos proyectos internacionales cuando el ICP y el proceso de venta están alineados.",
   },
   {
     question: "¿Qué incluye la auditoría inicial?",
     answer:
-      "Revisión del embudo actual, mensajes y activos digitales, velocidad web y puntos de fuga en captación; entregamos un informe priorizado con impacto estimado y un roadmap en tres fases.",
+      "Revisión de embudo, presencia digital, canales de captación, CRM y mensajes frente a tu cuenta objetivo. Entregamos informe priorizado con impacto estimado y propuesta de siguiente fase.",
   },
   {
-    question: "¿Cómo medimos el ROI de un embudo B2B?",
+    question: "¿Cuánto tarda un proyecto típico?",
     answer:
-      "Definimos KPIs conjuntos: reuniones cualificadas, tasa de respuesta, coste por SQL y velocidad hasta propuesta. Centralizamos datos en dashboards ejecutivos para tomar decisiones basadas en cohortes, no en vanity metrics.",
+      "Depende del alcance: un piloto de IA multicanal suele estar en 3–6 semanas; un embudo completo o rebranding web puede ir de 6 a 12 semanas. Siempre empezamos con un alcance acotado y escalamos con datos.",
+  },
+  {
+    question: "¿Cómo medimos el ROI?",
+    answer:
+      "Definimos KPIs conjuntos según servicios contratados: SQL, coste por oportunidad, tasa de respuesta, velocidad hasta propuesta, conversión por etapa y pipeline atribuido. Reporting ejecutivo, no vanity metrics.",
   },
 ]
 
 /** Keywords orientativas para la home (GEO + SERP locales). */
 export const HOME_METADATA_KEYWORDS = [
-  "ventas B2B",
-  "embudos B2B",
-  "automatización IA",
+  "agencia marketing B2B España",
   "presencia digital B2B",
-  "agencia marketing high-ticket España",
+  "embudos B2B",
+  "automatización ventas IA",
+  "crecimiento comercial B2B",
+  "renovar web corporativa",
   "lead generation empresas",
-  "Next.js B2B",
   "impacto Estudio",
 ] as const
 
@@ -240,48 +274,89 @@ export function getFormspreeEndpoint(): string | null {
 }
 
 export const NAV_LINKS = [
-  { href: "/servicios/presencia-digital", label: "Presencia digital" },
-  { href: "/servicios/embudos-b2b", label: "Embudos B2B" },
   { href: "/servicios/automatizacion-ia", label: "Automatización IA" },
+  { href: "/servicios/embudos-b2b", label: "Embudos B2B" },
+  { href: "/servicios/presencia-digital", label: "Presencia digital" },
 ] as const
+
+/** Perfiles y canales oficiales de Impacto Estudio. */
+export const SOCIAL_LINKS = [
+  {
+    id: "facebook",
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61575604136601",
+  },
+  {
+    id: "youtube",
+    label: "YouTube",
+    href: "https://www.youtube.com/@Impacto.estudio.espa%C3%B1a",
+  },
+  {
+    id: "whatsapp",
+    label: "WhatsApp",
+    href: "https://api.whatsapp.com/send/?phone=34613452066&text&type=phone_number&app_absent=0",
+  },
+  {
+    id: "instagram",
+    label: "Instagram",
+    href: "https://www.instagram.com/impacto.estudio.es",
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/esteban-roa-vergara/",
+  },
+] as const
+
+/** Opiniones en Google Business (enlace externo). */
+export const GOOGLE_REVIEWS_URL =
+  "https://www.google.com/search?q=Impacto+Estudio+%7C+Marketing+y+Dise%C3%B1o+%7C+Estrategia+opiniones&hl=es"
+
+/** URLs para schema.org `sameAs` (perfiles públicos de marca). */
+export const ORGANIZATION_SAME_AS = SOCIAL_LINKS.filter(
+  (link) => link.id !== "whatsapp",
+).map((link) => link.href)
 
 export const SERVICE_CARDS = [
   {
-    href: "/servicios/presencia-digital",
-    title: "Presencia digital",
+    href: "/servicios/automatizacion-ia",
+    title: "Automatización comercial con IA",
     description:
-      "Marca, web y contenidos corporativos pensados para decisores B2B y confianza de alto valor.",
-    imageSrc:
-      "/images/marca.png",
+      "Vende por WhatsApp, Instagram, web chat y más. IA conectada a tu CRM para cualificar, hacer seguimiento y escalar conversaciones.",
+    imageSrc: ILLUSTRATIONS.llm,
     imageAlt:
-      "Ilustración de identidad digital corporativa y página web orientada a decisores B2B",
+      "Ilustración de modelos de lenguaje aplicados a automatización comercial multicanal",
+    icon: "bot",
+    phase: "Captar y cualificar",
   },
   {
     href: "/servicios/embudos-b2b",
     title: "Embudos B2B",
     description:
-      "Funnels medibles: captación cualificada, nurturing y reuniones con perfil ideal.",
-    imageSrc:
-      "/images/embudo_ventas.png",
+      "Funnels medibles: captación cualificada, nurturing y reuniones con perfil ideal. KPIs por etapa del pipeline.",
+    imageSrc: ILLUSTRATIONS.booking,
     imageAlt:
-      "Representación visual de embudo de ventas B2B con etapas de cualificación y conversión",
+      "Ilustración de agendamiento de reuniones comerciales cualificadas en embudo B2B",
+    icon: "funnel",
+    phase: "Convertir con datos",
   },
   {
-    href: "/servicios/automatizacion-ia",
-    title: "Automatización con IA",
+    href: "/servicios/presencia-digital",
+    title: "Presencia digital",
     description:
-      "SDR y seguimiento inteligente para escalar conversaciones sin perder el tono humano.",
-    imageSrc:
-      "/images/crm.png",
+      "Renueva tu marca y tu web corporativa: autoridad, velocidad y mensajes que convierten tráfico en oportunidades.",
+    imageSrc: ILLUSTRATIONS.designTools,
     imageAlt:
-      "Mockup de automatización comercial con IA integrada en CRM y seguimiento de oportunidades",
+      "Ilustración de herramientas de diseño e identidad digital corporativa B2B",
+    icon: "megaphone",
+    phase: "Consolidar la marca",
   },
 ] as const
 
 export const OBJECTIVE_OPTIONS = [
   {
     value: "automatizar-ventas",
-    label: "Automatizar ventas / SDR con IA",
+    label: "Automatizar ventas con IA (multicanal)",
   },
   {
     value: "embudos-b2b",
@@ -289,9 +364,9 @@ export const OBJECTIVE_OPTIONS = [
   },
   {
     value: "presencia-digital",
-    label: "Mejorar presencia digital / marca",
+    label: "Renovar presencia digital / marca",
   },
-  { value: "lead-gen", label: "Captación de leads cualificados" },
+  { value: "lead-gen", label: "Vender más / captación cualificada" },
   { value: "otro", label: "Otro / varios objetivos" },
 ] as const
 

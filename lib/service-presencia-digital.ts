@@ -1,6 +1,6 @@
 import type { PresenciaDigitalLandingData } from "@/lib/types"
 
-import { SITE_NAME } from "@/lib/constants"
+import { ILLUSTRATIONS, SITE_NAME } from "@/lib/constants"
 
 export const PRESENCIA_DIGITAL_SERVICE_PATH =
   "/servicios/presencia-digital" as const
@@ -31,12 +31,11 @@ export const presenciaDigitalLandingData: PresenciaDigitalLandingData = {
     primaryCtaLabel: "Elevar mi autoridad digital",
     primaryCtaHref: "#cualificar",
     image: {
-      src:
-        "/images/diseno_marca.png",
+      src: ILLUSTRATIONS.designer,
       alt:
-        "Mockup de manual de marca corporativo y UI kit premium en entorno oscuro",
-      width: 1200,
-      height: 800,
+        "Ilustración de diseñador creando identidad visual corporativa premium para marca B2B",
+      width: 800,
+      height: 600,
     },
   },
   problem: {
@@ -50,30 +49,27 @@ export const presenciaDigitalLandingData: PresenciaDigitalLandingData = {
       title: "Identidad Visual de Autoridad",
       body:
         "Paletas de color, tipografías y sistemas de diseño pensados para transmitir lujo corporativo y fiabilidad.",
-      imageSrc:
-        "/images/sistema.png",
+      imageSrc: ILLUSTRATIONS.color,
       imageAlt:
-        "Representación de sistema de identidad visual corporativa con tipografía y paleta en fondo oscuro",
+        "Ilustración de sistema de identidad visual con paleta de color y elementos de marca",
       imageSide: "right",
     },
     {
       title: "Desarrollo UI/UX de Alto Rendimiento",
       body:
         "No usamos plantillas lentas. Programamos en Next.js para que tu web cargue instantáneamente y la experiencia de usuario sea premium.",
-      imageSrc:
-        "/images/ux.png",
+      imageSrc: ILLUSTRATIONS.webDevelopment,
       imageAlt:
-        "Interfaz web corporativa minimalista que ilustra experiencia de usuario premium",
+        "Ilustración de desarrollo web corporativo con experiencia de usuario premium en Next.js",
       imageSide: "left",
     },
     {
       title: "Optimización GEO y SEO",
       body:
         "Una marca bonita no sirve si las Inteligencias Artificiales y Google no entienden qué haces. Estructuramos tu presencia para dominar la búsqueda generativa.",
-      imageSrc:
-        "/images/seo.png",
+      imageSrc: ILLUSTRATIONS.reviews,
       imageAlt:
-        "Esquema conceptual de estructura de contenido y datos estructurados para SEO y búsqueda generativa",
+        "Ilustración de reseñas y visibilidad online para SEO y posicionamiento generativo",
       imageSide: "right",
     },
   ],

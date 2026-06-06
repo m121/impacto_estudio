@@ -1,19 +1,21 @@
 import Image from "next/image"
 
 import { TRUST_LOGOS } from "@/lib/constants"
+import { ScrollReveal } from "@/components/motion/scroll-reveal"
 
 export function SocialProofBar() {
   return (
     <section
-      className="border-y border-slate-200 bg-[#FFFFFF] py-10 dark:border-slate-800 dark:bg-slate-900"
+      className="border-y border-slate-200 bg-white py-10 dark:border-slate-200 dark:bg-white"
       aria-labelledby="trust-heading"
     >
+      <ScrollReveal>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="trust-heading"
-          className="text-center text-xs font-medium tracking-wide text-muted-foreground uppercase"
+          className="text-center text-xs font-medium tracking-wide text-slate-500 uppercase"
         >
-          Stack y partners tecnológicos que integramos en proyectos B2B
+          Stack tecnológico que integramos en proyectos B2B
         </h2>
         <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-12">
           {TRUST_LOGOS.map((logo) => (
@@ -30,6 +32,7 @@ export function SocialProofBar() {
           ))}
         </ul>
       </div>
+      </ScrollReveal>
     </section>
   )
 }

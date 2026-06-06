@@ -1,193 +1,234 @@
 import type { ServiceLandingContent } from "@/lib/types"
 
-import { SITE_NAME } from "@/lib/constants"
+import { ILLUSTRATIONS, SITE_NAME } from "@/lib/constants"
 
-/** Landing completa: automatización comercial con IA (template referencia). */
+/** Landing: automatización comercial multicanal con IA + CRM. */
 export const AUTOMATIZACION_IA_SERVICE_PATH =
   "/servicios/automatizacion-ia" as const
 
 export const automatizacionIaLandingContent: ServiceLandingContent = {
   path: AUTOMATIZACION_IA_SERVICE_PATH,
   metadataTitle:
-    "Automatización de Ventas B2B con IA · Implementación y auditoría | Impacto Estudio",
+    "Automatización comercial con IA multicanal + CRM · Impacto Estudio",
   metadataDescription:
-    "Automatización de ventas con IA para empresas B2B en España: cualificación 24/7, integración CRM (HubSpot y similares), despliegue en 4–10 semanas y soporte. Solicita auditoría de proceso.",
+    "Vende por WhatsApp, Instagram, web chat, email y más con IA conectada a tu CRM (Kommo, Brevo, HubSpot…). Cualificación 24/7, handoff a ventas y KPIs de respuesta, SQL y cierre.",
   metadataKeywords: [
-    "automación ventas IA",
-    "inteligencia artificial B2B",
-    "chatbot cualificación CRM",
-    "SDR con IA España",
-    "integración HubSpot IA",
-    "modelos de lenguaje comerciales",
-    "handoff automatizado ventas",
-    "impacto Estudio automatización",
+    "IA multicanal ventas",
+    "automatización comercial IA",
+    "WhatsApp Business CRM",
+    "Instagram DM ventas B2B",
+    "web chat IA CRM",
+    "Kommo integración IA",
+    "Brevo chatbot ventas",
+    "cerrar ventas con IA España",
   ],
-  ogTitle: `Automatización de ventas con IA B2B · ${SITE_NAME}`,
+  ogTitle: `IA multicanal + CRM para vender más · ${SITE_NAME}`,
   hero: {
-    h1: "Automatización de ventas con inteligencia artificial para B2B",
+    h1: "Vende por WhatsApp, Instagram, web chat y más con IA conectada a tu CRM",
     h2DirectAnswer:
-      "Es un sistema que cualifica y nutre leads con modelos de lenguaje y reglas de negocio conectadas a tu CRM: responde en menos de 90 segundos en horario extendido, enruta solo reuniones con perfil encaje ≥70 % según tu ICP y reduce un 35 % el tiempo de SDR en tareas repetitivas en clientes benchmark internos (piloto 90 días, sector SaaS y servicios).",
+      "Es un agente comercial con IA que opera en los canales donde ya te escriben tus clientes — WhatsApp, Instagram DM, web chat, email u otros — y sincroniza cada interacción con el CRM que elijas (Kommo, Brevo, HubSpot, Pipedrive…). Responde en segundos, cualifica según tu ICP, hace seguimiento automático y alerta a ventas cuando hay intención de compra para que cierres con contexto completo.",
     image: {
-      src: "/images/auto.png",
-      alt: "Mockup de interfaz de automatización de ventas B2B con IA mostrando panel de conversaciones cualificadas, estado del CRM y alertas de handoff a comercial",
-      width: 1200,
-      height: 800,
+      src: ILLUSTRATIONS.aiAnswers,
+      alt: "Ilustración de agente comercial con IA respondiendo en WhatsApp, web chat e Instagram sincronizado con CRM",
+      width: 800,
+      height: 600,
     },
-    primaryCtaLabel: "Auditoría de mi proceso",
+    primaryCtaLabel: "Auditoría multicanal + CRM",
     primaryCtaHref: "#cualificar",
+  },
+  kpiSection: {
+    eyebrow: "KPIs del servicio",
+    title: "Métricas de venta por canal, no vanity metrics",
+    subtitle:
+      "Cada conversación — venga de WhatsApp, Instagram, web o email — queda trazada en tu CRM para medir respuesta, cualificación y cierre.",
+    items: [
+      {
+        value: "< 60 s",
+        label: "Tiempo de primera respuesta",
+        description:
+          "La IA contesta al instante en cualquier canal conectado, antes de que el lead enfríe o elija a la competencia.",
+      },
+      {
+        value: "+40%",
+        label: "Tasa de respuesta en conversaciones",
+        description:
+          "Seguimiento automático con contexto del CRM: más diálogos activos y menos oportunidades abandonadas.",
+      },
+      {
+        value: "24/7",
+        label: "Cualificación fuera de horario",
+        description:
+          "Filtra presupuesto, urgencia y encaje ICP mientras tu equipo comercial descansa o cierra reuniones.",
+      },
+      {
+        value: "100%",
+        label: "Trazabilidad en tu CRM",
+        description:
+          "Cada mensaje, etiqueta y cambio de etapa queda en el CRM que elijas, sin doble entrada manual.",
+      },
+      {
+        value: "−35%",
+        label: "Tiempo en tareas repetitivas",
+        description:
+          "Ventas deja de responder lo mismo: la IA gestiona FAQs y objeciones frecuentes en todos los canales.",
+      },
+      {
+        value: "SQL → cierre",
+        label: "Pipeline medible por canal",
+        description:
+          "Dashboards con coste por oportunidad, tasa de conversión a reunión y cierre atribuido a WhatsApp, web, Instagram, etc.",
+      },
+    ],
   },
   painPoints: [
     {
       icon: "clock",
-      title: "Leads fríos que diluyen a tu equipo",
+      title: "Conversaciones que se pierden entre canales",
       description:
-        "Ventas contesta correos genéricos mientras los decisores calientes enfrían: sin scoring ni priorización pierdes un 22 % de velocidad media hasta primera reunión (benchmark interno 2025).",
+        "WhatsApp en un móvil, Instagram en otro, formulario web sin respuesta. Sin un sistema unificado, los leads se enfrían y ventas no ve el contexto completo.",
     },
     {
       icon: "trending-down",
-      title: "Baja conversión visita → reunión",
+      title: "Canales desconectados del CRM",
       description:
-        "Formularios estáticos capturan intención débil: menos del 3 % de visitas B2B medianas solicitan demo sin un diálogo guiado que clasifique presupuesto y rol decisor.",
+        "Si el historial no vive en tu CRM, no hay scoring, no hay seguimiento automático y dirección no puede medir tasa de respuesta ni conversión a cierre por canal.",
     },
     {
       icon: "users",
-      title: "Tiempo robado a AE en cualificación manual",
+      title: "Comerciales saturados en todos los frentes",
       description:
-        "Los account executives dedican hasta 12 h/semana a filtros que un flujo híbrido IA + reglas podría resolver sin sacrificar tono humano ni compliance.",
+        "Tu equipo repite las mismas respuestas en WhatsApp, email y chat web. Sin filtro IA, el coste por venta sube y el pipeline avanza lento.",
     },
   ],
   solutionRows: [
     {
-      title: "Flujos de cualificación con contexto de cuenta",
+      title: "Un agente IA, todos tus canales de venta",
       body:
-        "Entrenamos prompts y herramientas sobre tu propuesta de valor, objeciones y datos CRM para que cada respuesta cite políticas vigentes (precios orientativos, SLA, compliance RGPD). Handoff automático cuando el lead cumple 4 de 5 criterios ICP.",
+        "WhatsApp Business API, Instagram DM, web chat, email y más desde un solo cerebro comercial entrenado con tu propuesta, objeciones y políticas. Mismo tono, mismas reglas, seguimiento automático si el lead deja de contestar en cualquier canal.",
       statLabel: "Tiempo de primera respuesta",
-      statValue: "Menos de 90 s",
-      imageSrc:
-        "/images/prompt.png",
+      statValue: "Menos de 60 s",
+      imageSrc: ILLUSTRATIONS.socialMedia,
       imageAlt:
-        "Esquema de flujo de trabajo de cualificación de leads B2B con IA mostrando ramas de decisión y sincronización con CRM",
+        "Ilustración de perfiles en redes y mensajería: agente IA en canales de venta multicanal",
       imageRight: true,
     },
     {
-      title: "Integraciones nativas con tu stack comercial",
+      title: "Tu CRM de preferencia, sincronizado en tiempo real",
       body:
-        "HubSpot, Salesforce, Pipedrive y herramientas MA mediante APIs y webhooks: cada conversión crea o actualiza deal stage, owner y campos personalizados sin doble entrada manual.",
-      statLabel: "Integraciones activas por proyecto (media)",
-      statValue: "7 sistemas",
-      imageSrc:
-        "/images/ventas.png",
+        "Kommo, Brevo, HubSpot, Pipedrive u otro stack vía API y webhooks. Cada mensaje crea o actualiza contacto, deal stage, etiquetas y owner. Ventas ve el historial multicanal antes de llamar.",
+      statLabel: "Integraciones por proyecto (media)",
+      statValue: "5–7 sistemas",
+      imageSrc: ILLUSTRATIONS.approve,
       imageAlt:
-        "Diagrama de integración entre asistente IA de ventas y CRM HubSpot con sincronización bidireccional de contactos y actividades",
+        "Ilustración de aprobación y handoff comercial entre IA y equipo de ventas en el CRM",
       imageRight: false,
     },
     {
-      title: "Observabilidad y mejora continua",
+      title: "Handoff inteligente y mejora continua",
       body:
-        "Dashboard con tasas de abandono por paso, motivos de descarte y cohortes por sector. Reentrenamos mensajes cada 14 días según feedback de ventas y etiquetado de oportunidades ganadas/perdidas.",
-      statLabel: "Iteraciones de mejora programadas",
+        "Alertas cuando hay presupuesto, urgencia o solicitud de propuesta — en el canal que sea. Dashboard por canal con tasas de abandono, motivos de descarte y cohortes. Iteramos cada 14 días según conversaciones ganadas y perdidas.",
+      statLabel: "Ciclo de optimización",
       statValue: "Cada 14 días",
-      imageSrc:
-        "/images/dashboard_aut.png",
+      imageSrc: ILLUSTRATIONS.controlPanel,
       imageAlt:
-        "Captura conceptual de panel analítico de conversaciones automatizadas B2B con métricas de calificación y ROI por canal",
+        "Ilustración de panel de control con KPIs comerciales por canal y optimización continua",
       imageRight: true,
     },
   ],
   deliverables: [
     {
-      title: "Playbook de conversación y políticas",
+      title: "Playbook multicanal + objeciones",
       description:
-        "Guion maestro con tono de marca, límites legales y escalado a humano.",
+        "Guion maestro para WhatsApp, Instagram, web chat y email: tono, límites legales y cuándo escalar a humano.",
       wide: true,
     },
     {
-      title: "Asistente entrenado + entorno de staging",
+      title: "Agente IA + entorno de staging",
       description:
-        "Modelo alineado a tus docs más entorno de pruebas antes de producción.",
+        "Modelo alineado a tus docs y canales activos. Validación con tu equipo comercial antes de producción.",
       wide: false,
     },
     {
-      title: "Conectores CRM y automatización",
+      title: "Conectores CRM y alertas de handoff",
       description:
-        "Webhooks, campos personalizados y alertas a Slack o Teams.",
+        "Integración con el CRM que elijas. Alertas a Slack, Teams o WhatsApp interno cuando hay intención de compra.",
       wide: false,
     },
     {
-      title: "Soporte mensual y SLA de cambios",
+      title: "Secuencias de seguimiento por canal",
       description:
-        "Ventana de cambios menores en 48 h laborables y revisión trimestral.",
+        "Reactivación de chats abandonados, recordatorios y nurturing según etapa del pipeline y canal de origen.",
       wide: false,
     },
     {
-      title: "Informe ejecutivo de adopción",
+      title: "Dashboard de KPIs por canal",
       description:
-        "SQL generados, coste por reunión cualificada y ahorro horas SDR.",
+        "Respuesta, SQL, coste por oportunidad, velocidad hasta cierre y revenue atribuido a WhatsApp, web, Instagram, etc.",
       wide: true,
     },
   ],
   useCases: [
     {
       sector: "Software B2B y SaaS",
-      headline: "Demo requests cualificados por tamaño de equipo",
+      headline: "Demos cualificadas desde WhatsApp o web chat",
       body:
-        "Filtramos empresas pequeñas frente a enterprise, enriquecemos con datos firmográficos y solo agendamos cuando hay presupuesto declarado o uso crítico identificado.",
+        "Filtramos tamaño de empresa y presupuesto en el canal que el lead elija. Solo agendamos demo cuando hay encaje ICP.",
     },
     {
-      sector: "Clínicas y salud privada",
-      headline: "Triaje administrativo con cumplimiento RGPD",
+      sector: "E-commerce y retail B2B",
+      headline: "Atención comercial en Instagram y WhatsApp",
       body:
-        "Flujos sin diagnóstico médico automatizado: agenda visitas, FAQs administrativas y detección de idioma con handoff inmediato a recepción.",
+        "Catálogo, stock orientativo y escalado a comercial cuando hay pedido recurrente o volumen mayorista.",
     },
     {
       sector: "Servicios profesionales",
-      headline: "Consultoras y estudios legales",
+      headline: "Consultoras, clínicas e inmobiliarias",
       body:
-        "Priorizamos briefings por tipo de proyecto y jurisdicción; reducimos spam de formularios genéricos integrando firma electrónica cuando procede.",
+        "Triaje administrativo, FAQs y handoff inmediato cuando hay intención de reservar, contratar o solicitar propuesta.",
     },
   ],
   faqSectionEyebrow: "FAQ del servicio",
-  faqSectionTitle: "Preguntas de compra sobre automatización B2B con IA",
+  faqSectionTitle: "Preguntas sobre IA multicanal y CRM",
   faqSectionSubtitle:
-    "Respuestas pensadas para equipos que comparan proveedores y necesitan integración real con ventas.",
+    "Respuestas para equipos que quieren vender en varios canales con un solo sistema conectado al CRM.",
   faqItems: [
     {
-      question: "¿Se integra el chatbot con mi CRM actual?",
+      question: "¿Qué canales soportáis además de WhatsApp?",
       answer:
-        "Sí. Implementamos contra HubSpot, Salesforce, Pipedrive y stacks híbridos vía API REST y webhooks. Si tu CRM es menos común, valoramos conector personalizado en la fase de auditoría (presupuesto aparte si requiere middleware dedicado).",
+        "WhatsApp Business API, Instagram DM, web chat embebido, email y otros canales según tu stack. En auditoría definimos prioridad por volumen e intención de compra.",
     },
     {
-      question: "¿Cuánto tiempo toma el despliegue en producción?",
+      question: "¿Se conecta con mi CRM actual?",
       answer:
-        "Un piloto cerrado suele estar entre 4 y 10 semanas: 2 semanas de auditoría y diseño, 3–5 de integración y entrenamiento del modelo, 1–2 de UAT con tu equipo comercial y go-live gradual por cohortes.",
+        "Sí. Kommo, Brevo, HubSpot, Pipedrive y stacks híbridos vía API REST y webhooks. Si tu CRM es menos común, valoramos conector personalizado en auditoría.",
     },
     {
-      question: "¿Qué modelos de IA utilizáis y quién es responsable del dato?",
+      question: "¿Cuánto tarda el piloto multicanal?",
       answer:
-        "Combinamos modelos cloud líderes (por ejemplo familia GPT-4 o equivalentes) con opciones on-prem o VPC si tu política lo exige. Los datos de conversación se procesan según acuerdo de tratamiento (RGPD); por defecto no entrenamos modelos públicos con vuestra información sin cláusula específica.",
+        "Entre 3 y 6 semanas según canales e integraciones: auditoría (1 semana), configuración CRM + canales (2–3 semanas), entrenamiento y go-live gradual.",
     },
     {
-      question: "¿Cómo garantizáis que la IA no prometa lo que ventas no puede cumplir?",
+      question: "¿La IA cierra sola o pasa a un humano?",
       answer:
-        "Definimos políticas de respuesta y límites explícitos en el sistema (guardrails), revisión humana en staging y muestreo aleatorio semanal de conversaciones en las primeras 8 semanas post lanzamiento.",
+        "Cualifica, responde y hace seguimiento en todos los canales; el cierre lo hace tu comercial cuando hay señales claras de intención. Handoff configurable por canal y reglas de negocio.",
     },
     {
-      question: "¿Qué necesitamos enviar para la auditoría inicial?",
+      question: "¿Qué KPIs reportáis por canal?",
       answer:
-        "Ejemplos de leads típicos, grabaciones anonimizadas o transcripts de objeciones, exportación parcial de campos CRM, documentación de propuesta de valor y SLA internos de respuesta comercial.",
+        "Tiempo de primera respuesta, tasa de respuesta, SQL, coste por oportunidad, velocidad hasta reunión/propuesta, tasa de cierre y pipeline generado — desglosado por WhatsApp, web, Instagram, email, etc.",
     },
   ],
   schema: {
-    name: "Automatización de ventas con inteligencia artificial para empresas B2B",
+    name: "Automatización comercial multicanal con IA e integración CRM",
     description:
-      "Servicio de diseño, integración y operación de flujos comerciales asistidos por IA con conexión a CRM, cualificación de leads y reporting ejecutivo para equipos B2B en España.",
+      "Implementación de agente comercial con IA en WhatsApp, Instagram, web chat y otros canales, conectado al CRM del cliente, con cualificación, handoff a ventas y reporting de KPIs por canal.",
     serviceType:
-      "Consultoría e implementación de automatización comercial conversacional con IA",
+      "Consultoría e implementación de IA comercial conversacional multicanal con CRM",
   },
   bottomLead: {
-    title: "Auditoría de proceso sin compromiso",
+    title: "Auditoría multicanal + CRM sin compromiso",
     description:
-      "Completa el formulario con tu CRM y volumen mensual de leads: te respondemos con hipótesis de impacto, alcance y siguiente reunión técnica si hay encaje.",
+      "Indica canales activos, CRM y volumen de conversaciones: respondemos con hipótesis de KPIs, alcance del piloto y siguiente reunión si hay encaje.",
   },
-  stickyCtaLabel: "Pedir auditoría",
+  stickyCtaLabel: "Auditoría multicanal",
 }

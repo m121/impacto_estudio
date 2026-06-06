@@ -50,6 +50,7 @@
 }
 
 :root {
+    --scroll-padding-top: 5.5rem;
     /* Neutros 60% — superficies limpias B2B */
     --background: oklch(1 0 0);
     --foreground: oklch(0.21 0.03 265);
@@ -130,5 +131,12 @@
     }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--scroll-padding-top);
     }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }

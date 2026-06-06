@@ -1,12 +1,18 @@
 import Image from "next/image"
-import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
 import { Clock, TrendingDown, Users } from "lucide-react"
-import { Suspense } from "react"
 
-import { ContactForm } from "@/components/forms/ContactForm"
-import { ContactFormFallback } from "@/components/sections/contact-form-fallback"
-import { Button } from "@/components/ui/button"
+import { KpiMetricsSection } from "@/components/sections/kpi-metrics-section"
+import { ScrollReveal } from "@/components/motion/scroll-reveal"
+import {
+  ServiceContactBand,
+} from "@/components/service-pages/service-landing-bands"
+import { ServiceLandingHero } from "@/components/service-pages/service-landing-hero"
+import {
+  ServiceDarkSection,
+  ServiceGlassCard,
+} from "@/components/service-pages/service-dark-section"
+import { MOTION_STAGGER_STEP } from "@/lib/motion"
 import type { PainIconKey, ServiceLandingContent } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
@@ -33,223 +39,194 @@ export function ServiceLandingTemplate({
 
   return (
     <article className="pb-28 md:pb-32">
-      <section
-        className="border-b border-slate-200 bg-slate-50 px-4 py-16 dark:border-slate-800 dark:bg-slate-950 sm:px-6 sm:py-20"
-        aria-labelledby={`${slug}-hero-h1`}
-      >
-        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <header className="flex flex-col gap-6">
-            <p className="text-xs font-medium tracking-wide text-brand-cyan uppercase dark:text-brand-cyan">
-              Servicio B2B
-            </p>
-            <h1
-              id={`${slug}-hero-h1`}
-              className="font-heading text-4xl leading-tight font-semibold tracking-tight text-slate-900 text-balance dark:text-slate-50 sm:text-5xl"
-            >
-              {content.hero.h1}
-            </h1>
-            <h2 className="text-lg leading-relaxed font-normal text-slate-600 text-pretty dark:text-slate-300 sm:text-xl">
-              {content.hero.h2DirectAnswer}
-            </h2>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button
-                size="lg"
-                className="shadow-lg shadow-brand-pink/25 transition hover:scale-[1.02] hover:brightness-110"
-                asChild
-              >
-                <Link href={content.hero.primaryCtaHref}>
-                  {content.hero.primaryCtaLabel}
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" asChild>
-                <Link href="/">Volver al inicio</Link>
-              </Button>
-            </div>
-          </header>
+      <ServiceLandingHero
+        headingId={`${slug}-hero-h1`}
+        eyebrow="Servicio B2B · Automatización IA"
+        h1={content.hero.h1}
+        h2={content.hero.h2DirectAnswer}
+        primaryCtaHref={content.hero.primaryCtaHref}
+        primaryCtaLabel={content.hero.primaryCtaLabel}
+        image={content.hero.image}
+        imageBadge="WhatsApp · Instagram · CRM"
+      />
 
-          <figure className="relative mx-auto w-full max-w-xl lg:max-w-none">
-            <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-slate-200 bg-slate-200 shadow-xl dark:border-slate-800 dark:bg-slate-900">
-              <Image
-                src={content.hero.image.src}
-                alt={content.hero.image.alt}
-                width={content.hero.image.width}
-                height={content.hero.image.height}
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <figcaption className="sr-only">
-              Imagen principal del servicio para contexto visual del comprador B2B
-            </figcaption>
-          </figure>
-        </div>
-      </section>
+      {content.kpiSection ? (
+        <KpiMetricsSection {...content.kpiSection} />
+      ) : null}
 
-      <section
-        className="bg-slate-900 px-4 py-16 text-white sm:px-6 sm:py-20"
-        aria-labelledby={`${slug}-pain-heading`}
+      <ServiceDarkSection
+        ariaLabelledby={`${slug}-pain-heading`}
+        title="Si no sistematizáis la captación, esto es lo que pierde la organización"
+        subtitle="Tres síntomas habituales en equipos B2B antes de automatizar con criterio."
       >
-        <div className="mx-auto max-w-6xl">
-          <header className="mb-12 max-w-2xl">
-            <h2
-              id={`${slug}-pain-heading`}
-              className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl"
-            >
-              Si no sistematizáis la captación, esto es lo que pierde la organización
-            </h2>
-            <p className="mt-4 text-slate-300">
-              Tres síntomas habituales en equipos B2B antes de automatizar con criterio.
-            </p>
-          </header>
-          <ul className="grid gap-8 md:grid-cols-3">
-            {content.painPoints.map((pain) => {
-              const Icon = PAIN_ICONS[pain.icon]
-              return (
-                <li
-                  key={pain.title}
-                  className="rounded-xl border border-slate-700/80 bg-slate-800/40 p-6"
-                >
-                  <Icon
-                    className="size-10 text-brand-cyan"
-                    aria-hidden
-                  />
-                  <h3 className="font-heading mt-4 text-lg font-semibold">
-                    {pain.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300">
-                    {pain.description}
-                  </p>
+        <ul className="grid gap-5 md:grid-cols-3">
+          {content.painPoints.map((pain, index) => {
+            const Icon = PAIN_ICONS[pain.icon]
+            return (
+              <ScrollReveal key={pain.title} delay={index * MOTION_STAGGER_STEP}>
+                <li className="list-none">
+                  <ServiceGlassCard accent={index === 1 ? "pink" : "cyan"}>
+                    <Icon className="size-10 text-brand-cyan" aria-hidden />
+                    <h3 className="font-heading mt-4 text-lg font-semibold text-white">
+                      {pain.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                      {pain.description}
+                    </p>
+                  </ServiceGlassCard>
                 </li>
-              )
-            })}
-          </ul>
-        </div>
-      </section>
+              </ScrollReveal>
+            )
+          })}
+        </ul>
+      </ServiceDarkSection>
 
       <section
-        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20"
+        className="relative overflow-hidden px-4 py-16 sm:px-6 sm:py-24"
         aria-labelledby={`${slug}-solution-heading`}
       >
-        <header className="mb-14 max-w-2xl">
-          <p className="text-xs font-medium tracking-wide text-brand-cyan uppercase dark:text-brand-cyan">
-            Qué hacemos
-          </p>
-          <h2
-            id={`${slug}-solution-heading`}
-            className="font-heading mt-2 text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl"
-          >
-            Cómo se traduce en resultados para ventas y marketing
-          </h2>
-        </header>
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-linear-to-b from-slate-100/70 via-white to-slate-50"
+        />
+        <div className="relative mx-auto max-w-6xl">
+          <ScrollReveal>
+            <header className="mb-14 max-w-2xl">
+              <p className="text-xs font-medium tracking-[0.2em] text-brand-cyan uppercase">
+                Qué hacemos
+              </p>
+              <h2
+                id={`${slug}-solution-heading`}
+                className="font-heading mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
+              >
+                Cómo se traduce en resultados para ventas y marketing
+              </h2>
+            </header>
+          </ScrollReveal>
 
-        <div className="flex flex-col gap-16 md:gap-20">
-          {content.solutionRows.map((row) => (
-            <div
-              key={row.title}
-              className={cn(
-                "flex flex-col gap-10 md:flex-row md:items-center",
-                row.imageRight ? "md:flex-row" : "md:flex-row-reverse",
-              )}
-            >
-              <div className="flex-1 space-y-4">
-                <div>
-                  <p className="font-heading text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl">
-                    {row.statValue}
-                  </p>
-                  <p className="mt-1 text-xs font-semibold tracking-wide text-brand-cyan uppercase dark:text-brand-cyan">
-                    {row.statLabel}
-                  </p>
+          <div className="flex flex-col gap-16 md:gap-20">
+            {content.solutionRows.map((row, index) => (
+              <ScrollReveal key={row.title} delay={index * 0.05}>
+                <div
+                  className={cn(
+                    "flex flex-col gap-10 md:flex-row md:items-center",
+                    row.imageRight ? "md:flex-row" : "md:flex-row-reverse",
+                  )}
+                >
+                  <div className="flex-1 space-y-4">
+                    <div className="inline-block rounded-xl border border-brand-cyan/20 bg-brand-cyan/5 px-4 py-3">
+                      <p className="font-heading text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                        {row.statValue}
+                      </p>
+                      <p className="mt-1 text-xs font-semibold tracking-wide text-brand-cyan uppercase">
+                        {row.statLabel}
+                      </p>
+                    </div>
+                    <h3 className="font-heading text-2xl font-semibold text-slate-900">
+                      {row.title}
+                    </h3>
+                    <p className="leading-relaxed text-muted-foreground">
+                      {row.body}
+                    </p>
+                  </div>
+                  <figure className="relative mx-auto w-full flex-1">
+                    <div
+                      aria-hidden
+                      className="absolute -inset-2 rotate-1 rounded-2xl border border-slate-200/60 bg-slate-100/80"
+                    />
+                    <div className="relative aspect-5/3 overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-lg ring-1 ring-slate-900/5">
+                      <Image
+                        src={row.imageSrc}
+                        alt={row.imageAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-contain p-2"
+                      />
+                    </div>
+                  </figure>
                 </div>
-                <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-slate-50">
-                  {row.title}
-                </h3>
-                <p className="leading-relaxed text-muted-foreground">
-                  {row.body}
-                </p>
-              </div>
-              <figure className="relative aspect-5/3 w-full flex-1 overflow-hidden rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900">
-                <Image
-                  src={row.imageSrc}
-                  alt={row.imageAlt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </figure>
-            </div>
-          ))}
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
       <section
-        className="border-y border-slate-200 bg-slate-50 px-4 py-16 dark:border-slate-800 dark:bg-slate-900/40 sm:px-6 sm:py-20"
+        className="border-y border-slate-200 bg-linear-to-b from-slate-50 to-white px-4 py-16 sm:px-6 sm:py-24"
         aria-labelledby={`${slug}-deliverables-heading`}
       >
         <div className="mx-auto max-w-6xl">
-          <header className="mb-10 max-w-2xl">
-            <h2
-              id={`${slug}-deliverables-heading`}
-              className="font-heading text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl"
-            >
-              Entregables tangibles al cerrar el proyecto
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              Lo que vuestro equipo puede auditar en el acto de entrega y en revisiones mensuales.
-            </p>
-          </header>
-          <ul className="grid gap-4 md:grid-cols-2">
-            {content.deliverables.map((d) => (
-              <li
-                key={d.title}
-                className={cn(
-                  "rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950",
-                  d.wide && "md:col-span-2",
-                )}
+          <ScrollReveal>
+            <header className="mb-10 max-w-2xl">
+              <h2
+                id={`${slug}-deliverables-heading`}
+                className="font-heading text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
               >
-                <h3 className="font-heading text-lg font-semibold text-slate-900 dark:text-slate-50">
-                  {d.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {d.description}
-                </p>
-              </li>
+                Entregables tangibles al cerrar el proyecto
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+                Lo que vuestro equipo puede auditar en el acto de entrega y en
+                revisiones mensuales.
+              </p>
+            </header>
+          </ScrollReveal>
+          <ul className="grid gap-4 md:grid-cols-2">
+            {content.deliverables.map((d, index) => (
+              <ScrollReveal key={d.title} delay={index * MOTION_STAGGER_STEP}>
+                <li
+                  className={cn(
+                    "list-none rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md",
+                    "border-t-4",
+                    index % 2 === 0 ? "border-t-brand-cyan" : "border-t-brand-pink",
+                    d.wide && "md:col-span-2",
+                  )}
+                >
+                  <h3 className="font-heading text-lg font-semibold text-slate-900">
+                    {d.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {d.description}
+                  </p>
+                </li>
+              </ScrollReveal>
             ))}
           </ul>
         </div>
       </section>
 
       <section
-        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20"
+        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24"
         aria-labelledby={`${slug}-usecases-heading`}
       >
-        <header className="mb-12 max-w-2xl">
-          <h2
-            id={`${slug}-usecases-heading`}
-            className="font-heading text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl"
-          >
-            Dónde encaja este servicio
-          </h2>
-          <p className="mt-3 text-muted-foreground">
-            Ejemplos reales de aplicación por sector; el playbook se adapta a vuestro ICP y compliance.
-          </p>
-        </header>
-        <div className="grid gap-8 md:grid-cols-3">
-          {content.useCases.map((uc) => (
-            <article
-              key={uc.sector}
-              className="flex flex-col rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/60"
+        <ScrollReveal>
+          <header className="mb-12 max-w-2xl">
+            <h2
+              id={`${slug}-usecases-heading`}
+              className="font-heading text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
             >
-              <p className="text-xs font-semibold tracking-wide text-brand-cyan uppercase dark:text-brand-cyan">
-                {uc.sector}
-              </p>
-              <h3 className="font-heading mt-3 text-lg font-semibold text-slate-900 dark:text-slate-50">
-                {uc.headline}
-              </h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {uc.body}
-              </p>
-            </article>
+              Dónde encaja este servicio
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Ejemplos reales de aplicación por sector; el playbook se adapta a
+              vuestro ICP y compliance.
+            </p>
+          </header>
+        </ScrollReveal>
+        <div className="grid gap-6 md:grid-cols-3">
+          {content.useCases.map((uc, index) => (
+            <ScrollReveal key={uc.sector} delay={index * MOTION_STAGGER_STEP}>
+              <article className="flex h-full flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-cyan/40 hover:shadow-md">
+                <p className="inline-flex w-fit rounded-full bg-brand-cyan/10 px-2.5 py-0.5 text-xs font-semibold tracking-wide text-brand-cyan uppercase">
+                  {uc.sector}
+                </p>
+                <h3 className="font-heading mt-3 text-lg font-semibold text-slate-900">
+                  {uc.headline}
+                </h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  {uc.body}
+                </p>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -262,33 +239,12 @@ export function ServiceLandingTemplate({
         slug={slug}
       />
 
-      <section
-        id="cualificar"
-        className="scroll-mt-24 bg-slate-900 px-4 py-20 text-slate-50 sm:px-6 sm:py-28"
-        aria-labelledby={`${slug}-lead-heading`}
-      >
-        <div className="mx-auto max-w-6xl">
-          <header className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="text-xs font-medium tracking-wide text-brand-cyan uppercase">
-              Contacto
-            </p>
-            <h2
-              id={`${slug}-lead-heading`}
-              className="font-heading mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
-            >
-              {content.bottomLead.title}
-            </h2>
-            <p className="mt-4 text-lg text-slate-300">
-              {content.bottomLead.description}
-            </p>
-          </header>
-          <div className="mx-auto max-w-xl">
-            <Suspense fallback={<ContactFormFallback />}>
-              <ContactForm />
-            </Suspense>
-          </div>
-        </div>
-      </section>
+      <ServiceContactBand
+        headingId={`${slug}-lead-heading`}
+        eyebrow="Contacto"
+        title={content.bottomLead.title}
+        description={content.bottomLead.description}
+      />
 
       <ServiceStickyCta
         label={content.stickyCtaLabel}

@@ -33,6 +33,19 @@ export const contactLeadSchema = z.object({
 
 export type ContactLeadValues = z.infer<typeof contactLeadSchema>
 
+export type KpiMetricItem = {
+  value: string
+  label: string
+  description: string
+}
+
+export type KpiSectionContent = {
+  eyebrow: string
+  title: string
+  subtitle: string
+  items: readonly KpiMetricItem[]
+}
+
 export type HomeFaqItem = {
   question: string
   answer: string
@@ -101,6 +114,7 @@ export type ServiceLandingContent = {
   faqSectionTitle: string
   faqSectionSubtitle: string
   schema: ServiceSchemaContent
+  kpiSection?: KpiSectionContent
   bottomLead: {
     title: string
     description: string
@@ -205,4 +219,17 @@ export type PresenciaDigitalLandingData = {
   schema: ServiceSchemaContent
   bottomLead: { title: string; description: string }
   stickyCtaLabel: string
+}
+
+export type SocialLinkId =
+  | "facebook"
+  | "youtube"
+  | "whatsapp"
+  | "instagram"
+  | "linkedin"
+
+export type SocialLink = {
+  id: SocialLinkId
+  label: string
+  href: string
 }

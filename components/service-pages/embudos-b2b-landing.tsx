@@ -1,15 +1,21 @@
 import Image from "next/image"
-import Link from "next/link"
-import { Suspense } from "react"
 import {
   Radar,
   SlidersHorizontal,
   Workflow,
 } from "lucide-react"
 
-import { ContactForm } from "@/components/forms/ContactForm"
-import { ContactFormFallback } from "@/components/sections/contact-form-fallback"
-import { Button } from "@/components/ui/button"
+import { ScrollReveal } from "@/components/motion/scroll-reveal"
+import {
+  ServiceContactBand,
+  ServiceProblemBand,
+} from "@/components/service-pages/service-landing-bands"
+import { ServiceLandingHero } from "@/components/service-pages/service-landing-hero"
+import {
+  ServiceDarkSection,
+  ServiceGlassCard,
+} from "@/components/service-pages/service-dark-section"
+import { MOTION_STAGGER_STEP } from "@/lib/motion"
 import { cn } from "@/lib/utils"
 import type { EmbudosB2bLandingData } from "@/lib/types"
 
@@ -18,186 +24,127 @@ import { ServiceStickyCta } from "./service-sticky-cta"
 
 const FEATURE_ICONS = [Radar, SlidersHorizontal, Workflow] as const
 
+const PROBLEM_SIGNALS = [
+  "Facturación atada a referidos sin pipeline predecible",
+  "Leads curiosos que saturan el calendario comercial",
+  "Ciclos largos sin datos de atribución por etapa",
+] as const
+
 export function EmbudosB2bLanding({ data }: { data: EmbudosB2bLandingData }) {
   const slug = "embudos-b2b"
 
   return (
     <article className="pb-28 md:pb-32">
-      <section
-        className="border-b border-slate-800 bg-slate-950 px-4 py-16 sm:px-6 sm:py-20"
-        aria-labelledby={`${slug}-hero-h1`}
-      >
-        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <header className="flex flex-col gap-6">
-            <p className="text-xs font-medium tracking-wide text-[#00C1D5] uppercase">
-              Servicio B2B · Embudos
-            </p>
-            <h1
-              id={`${slug}-hero-h1`}
-              className="font-heading text-4xl leading-tight font-semibold tracking-tight text-balance text-slate-50 sm:text-5xl"
-            >
-              {data.hero.h1}
-            </h1>
-            <h2 className="text-lg leading-relaxed font-normal text-pretty text-slate-300 sm:text-xl">
-              {data.hero.h2}
-            </h2>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button
-                size="lg"
-                className={cn(
-                  "border-transparent bg-[#F84677] text-white shadow-lg shadow-[#F84677]/35 transition hover:scale-[1.02] hover:bg-[#F84677]/90",
-                )}
-                asChild
-              >
-                <Link href={data.hero.primaryCtaHref}>
-                  {data.hero.primaryCtaLabel}
-                </Link>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/80"
-                asChild
-              >
-                <Link href="/">Volver al inicio</Link>
-              </Button>
-            </div>
-          </header>
+      <ServiceLandingHero
+        headingId={`${slug}-hero-h1`}
+        eyebrow="Servicio B2B · Embudos"
+        h1={data.hero.h1}
+        h1Accent="reuniones cualificadas"
+        h2={data.hero.h2}
+        primaryCtaHref={data.hero.primaryCtaHref}
+        primaryCtaLabel={data.hero.primaryCtaLabel}
+        image={data.hero.image}
+        imageBadge="Captación · Scoring · CRM"
+      />
 
-          <figure className="relative mx-auto w-full max-w-xl lg:max-w-none">
-            <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-slate-700/90 bg-slate-900 shadow-xl shadow-[#00C1D5]/15 ring-1 ring-[#00C1D5]/20">
-              <Image
-                src={data.hero.image.src}
-                alt={data.hero.image.alt}
-                width={data.hero.image.width}
-                height={data.hero.image.height}
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <figcaption className="sr-only">
-              Ilustración de embudo de automatización para contexto visual
-            </figcaption>
-          </figure>
-        </div>
-      </section>
+      <ServiceProblemBand
+        headingId={`${slug}-pain-heading`}
+        title={data.problem.title}
+        body={data.problem.body}
+        signals={PROBLEM_SIGNALS}
+      />
 
-      <section
-        className="bg-slate-900 px-4 py-16 sm:px-6 sm:py-20"
-        aria-labelledby={`${slug}-pain-heading`}
+      <ServiceDarkSection
+        ariaLabelledby={`${slug}-solution-heading`}
+        eyebrow="Solución"
+        title="Pipeline predecible, sin diluir comercial con curiosos"
       >
-        <div className="mx-auto max-w-3xl">
-          <h2
-            id={`${slug}-pain-heading`}
-            className="font-heading text-3xl font-semibold tracking-tight text-balance text-slate-50 sm:text-4xl"
-          >
-            {data.problem.title}
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-slate-300">
-            {data.problem.body}
-          </p>
-        </div>
-      </section>
-
-      <section
-        className="bg-slate-950 px-4 py-16 sm:px-6 sm:py-20"
-        aria-labelledby={`${slug}-solution-heading`}
-      >
-        <div className="mx-auto max-w-6xl">
-          <header className="mb-12 max-w-2xl">
-            <p className="text-xs font-medium tracking-wide text-[#00C1D5] uppercase">
-              Solución
-            </p>
-            <h2
-              id={`${slug}-solution-heading`}
-              className="font-heading mt-2 text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl"
-            >
-              Pipeline predecible, sin diluir comercial con curiosos
-            </h2>
-          </header>
-          <ul className="grid gap-10 md:grid-cols-3">
-            {data.features.map((f, index) => {
-              const Icon = FEATURE_ICONS[index]
-              return (
-                <li
-                  key={f.title}
-                  className="rounded-xl border border-slate-800 bg-slate-900/60 p-6"
-                >
-                  <Icon
-                    className="size-10 text-[#00C1D5]"
-                    aria-hidden
-                  />
-                  <h3 className="font-heading mt-4 text-lg font-semibold text-slate-50">
-                    {f.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                    {f.description}
-                  </p>
+        <ul className="grid gap-5 md:grid-cols-3">
+          {data.features.map((f, index) => {
+            const Icon = FEATURE_ICONS[index]
+            return (
+              <ScrollReveal key={f.title} delay={index * MOTION_STAGGER_STEP}>
+                <li className="list-none">
+                  <ServiceGlassCard accent={index === 1 ? "pink" : "cyan"}>
+                    <span
+                      className="font-heading text-3xl font-bold text-white/15"
+                      aria-hidden
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <Icon className="mt-3 size-10 text-brand-cyan" aria-hidden />
+                    <h3 className="font-heading mt-4 text-lg font-semibold text-white">
+                      {f.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                      {f.description}
+                    </p>
+                  </ServiceGlassCard>
                 </li>
-              )
-            })}
-          </ul>
-        </div>
-      </section>
+              </ScrollReveal>
+            )
+          })}
+        </ul>
+      </ServiceDarkSection>
 
       <section
-        className="border-y border-slate-800 bg-slate-900/70 px-4 py-16 sm:px-6 sm:py-20"
+        className="border-y border-slate-200 bg-linear-to-b from-slate-50 to-white px-4 py-16 sm:px-6 sm:py-24"
         aria-labelledby={`${slug}-deliverables-heading`}
       >
         <div className="mx-auto max-w-6xl">
-          <header className="mb-10 max-w-2xl">
-            <h2
-              id={`${slug}-deliverables-heading`}
-              className="font-heading text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl"
-            >
-              Entregables
-            </h2>
-          </header>
-          <div className="grid auto-rows-fr gap-4 md:grid-cols-3">
-            {data.deliverablesBento.map((item) => (
-              <article
-                key={item.title}
-                className={cn(
-                  "rounded-2xl border border-slate-700/90 bg-slate-950 p-6 shadow-sm",
-                  item.className ?? "",
-                )}
+          <ScrollReveal>
+            <header className="mb-10 max-w-2xl">
+              <p className="text-xs font-medium tracking-[0.2em] text-brand-cyan uppercase">
+                Entregables
+              </p>
+              <h2
+                id={`${slug}-deliverables-heading`}
+                className="font-heading mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
               >
-                <h3 className="font-heading text-lg font-semibold text-slate-50">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                  {item.description}
-                </p>
-              </article>
+                Lo que recibes al cerrar el embudo
+              </h2>
+            </header>
+          </ScrollReveal>
+          <div className="grid auto-rows-fr gap-4 md:grid-cols-3">
+            {data.deliverablesBento.map((item, index) => (
+              <ScrollReveal key={item.title} delay={index * MOTION_STAGGER_STEP}>
+                <article
+                  className={cn(
+                    "h-full rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md",
+                    "border-t-4",
+                    index === 1 ? "border-t-brand-pink" : "border-t-brand-cyan",
+                    item.className ?? "",
+                  )}
+                >
+                  <h3 className="font-heading text-lg font-semibold text-slate-900">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {item.description}
+                  </p>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section
-        className="bg-slate-950 px-4 py-16 sm:px-6 sm:py-20"
-        aria-labelledby={`${slug}-proof-heading`}
+      <ServiceDarkSection
+        ariaLabelledby={`${slug}-proof-heading`}
+        title={data.proof.title}
       >
-        <div className="mx-auto max-w-6xl">
-          <h2
-            id={`${slug}-proof-heading`}
-            className="font-heading text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl"
-          >
-            {data.proof.title}
-          </h2>
-          <ul className="mt-8 grid gap-6 md:grid-cols-3">
-            {data.proof.items.map((text) => (
-              <li
-                key={text}
-                className="rounded-xl border border-slate-800 bg-slate-900/50 px-5 py-4 text-sm leading-relaxed text-slate-300"
-              >
-                {text}
+        <ul className="grid gap-5 md:grid-cols-3">
+          {data.proof.items.map((text, index) => (
+            <ScrollReveal key={text} delay={index * MOTION_STAGGER_STEP}>
+              <li className="list-none">
+                <ServiceGlassCard accent={index === 1 ? "pink" : "cyan"}>
+                  <p className="text-sm leading-relaxed text-slate-200">{text}</p>
+                </ServiceGlassCard>
               </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+            </ScrollReveal>
+          ))}
+        </ul>
+      </ServiceDarkSection>
 
       <ServicePageFaq
         eyebrow={data.faqSectionEyebrow}
@@ -207,38 +154,14 @@ export function EmbudosB2bLanding({ data }: { data: EmbudosB2bLandingData }) {
         slug={slug}
       />
 
-      <section
-        id="cualificar"
-        className="scroll-mt-24 bg-slate-900 px-4 py-20 text-slate-50 sm:px-6 sm:py-28"
-        aria-labelledby={`${slug}-lead-heading`}
-      >
-        <div className="mx-auto max-w-6xl">
-          <header className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="text-xs font-medium tracking-wide text-[#00C1D5] uppercase">
-              Contacto
-            </p>
-            <h2
-              id={`${slug}-lead-heading`}
-              className="font-heading mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
-            >
-              {data.bottomLead.title}
-            </h2>
-            <p className="mt-4 text-lg text-slate-300">
-              {data.bottomLead.description}
-            </p>
-          </header>
-          <div className="mx-auto max-w-xl">
-            <Suspense fallback={<ContactFormFallback />}>
-              <ContactForm />
-            </Suspense>
-          </div>
-        </div>
-      </section>
-
-      <ServiceStickyCta
-        label={data.stickyCtaLabel}
-        href="#cualificar"
+      <ServiceContactBand
+        headingId={`${slug}-lead-heading`}
+        eyebrow="Contacto"
+        title={data.bottomLead.title}
+        description={data.bottomLead.description}
       />
+
+      <ServiceStickyCta label={data.stickyCtaLabel} href="#cualificar" />
     </article>
   )
 }

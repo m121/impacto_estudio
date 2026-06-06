@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { ScrollReveal } from "@/components/motion/scroll-reveal"
 import type { HomeFaqItem } from "@/lib/types"
 
 type HomeFAQProps = {
@@ -19,6 +20,7 @@ export function HomeFAQ({ items }: HomeFAQProps) {
       aria-labelledby="faq-heading"
     >
       <div className="mx-auto max-w-3xl">
+        <ScrollReveal>
         <header className="mb-10 text-center">
           <p className="text-xs font-medium tracking-wide text-brand-cyan uppercase">
             FAQ
@@ -27,14 +29,16 @@ export function HomeFAQ({ items }: HomeFAQProps) {
             id="faq-heading"
             className="font-heading mt-2 text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl"
           >
-            Preguntas frecuentes de clientes B2B
+            Preguntas frecuentes sobre Impacto Estudio
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Respuestas directas para equipos que evalúan automatización, Next.js
-            y embudos high-ticket.
+            Respuestas directas para equipos que evalúan embudos, IA comercial y
+            renovación de presencia digital.
           </p>
         </header>
+        </ScrollReveal>
 
+        <ScrollReveal delay={0.08}>
         <Accordion type="single" collapsible className="w-full">
           {items.map((item, index) => (
             <AccordionItem key={item.question} value={`faq-${index}`}>
@@ -47,6 +51,7 @@ export function HomeFAQ({ items }: HomeFAQProps) {
             </AccordionItem>
           ))}
         </Accordion>
+        </ScrollReveal>
       </div>
     </section>
   )

@@ -1,5 +1,6 @@
 import { Suspense } from "react"
 
+import { ScrollReveal } from "@/components/motion/scroll-reveal"
 import { Button } from "@/components/ui/button"
 import { ContactForm } from "@/components/forms/ContactForm"
 import Link from "next/link"
@@ -14,6 +15,7 @@ export function BottomCtaSection() {
       aria-labelledby="cta-final-heading"
     >
       <div className="mx-auto max-w-6xl">
+        <ScrollReveal>
         <header className="mx-auto mb-12 max-w-2xl text-center">
           <p className="text-xs font-medium tracking-wide text-brand-cyan uppercase">
             Siguiente paso
@@ -22,12 +24,12 @@ export function BottomCtaSection() {
             id="cta-final-heading"
             className="font-heading mt-3 text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl"
           >
-            Solicita una cualificación y recibe un plan acorde a tu ticket
-            medio
+            Solicita una auditoría gratuita de tu marca y embudo
           </h2>
           <p className="mt-4 text-lg text-slate-300">
-            Cuéntanos objetivo, web actual y presupuesto orientativo: respondemos
-            con propuesta o siguientes preguntas en 1–2 días laborables.
+            Cuéntanos objetivo, web actual y presupuesto orientativo. Te
+            respondemos con propuesta o siguientes preguntas en 1–2 días
+            laborables.
           </p>
           <div className="mt-8 flex justify-center">
             <Button
@@ -39,12 +41,15 @@ export function BottomCtaSection() {
             </Button>
           </div>
         </header>
+        </ScrollReveal>
 
+        <ScrollReveal delay={0.1}>
         <div id="cualificar-form-anchor" className="mx-auto max-w-xl scroll-mt-28">
           <Suspense fallback={<ContactFormFallback />}>
             <ContactForm />
           </Suspense>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   )
