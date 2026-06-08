@@ -7,12 +7,12 @@ import { HOME_PROBLEM_IMAGE, HOME_PROBLEM_SIGNALS } from "@/lib/constants"
 export function ProblemAgitationSection() {
   return (
     <section
-      className="relative overflow-hidden px-4 py-16 sm:px-6 sm:py-24"
+      className="relative isolate overflow-hidden border-y border-slate-200/70 bg-white px-4 py-16 sm:px-6 sm:py-24"
       aria-labelledby="problem-heading"
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-linear-to-br from-brand-pink/[0.04] via-white to-brand-cyan/[0.06]"
+        className="pointer-events-none absolute inset-0 bg-linear-to-br from-brand-pink/5 via-white to-brand-cyan/8"
       />
       <div
         aria-hidden

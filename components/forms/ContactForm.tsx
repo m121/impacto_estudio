@@ -57,7 +57,7 @@ export function ContactForm() {
     if (!endpoint) {
       form.setError("root", {
         message:
-          "Falta NEXT_PUBLIC_FORMSPREE_FORM_ID. Configura el id en Formspree.",
+          " Error al enviar el formulario. Por favor, inténtalo de nuevo.",
       })
       setStatus("error")
       return
@@ -244,8 +244,7 @@ export function ContactForm() {
 
             {status === "success" ? (
               <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
-                Recibido. Revisa tu bandeja (y spam) para confirmar si Formspree
-                lo requiere.
+                Recibido. Te contactaremos en breve.
               </p>
             ) : null}
 

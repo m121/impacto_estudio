@@ -38,8 +38,8 @@ export const SITE_URL =
 /** Logo de marca en Navbar / JSON-LD Organization. En `public/images/logo.png`. */
 export const SITE_LOGO_PATH = "/images/logo.png"
 
-/** Favicon circular de marca — generado en `src/app/icon.svg` (convención Next.js). */
-export const SITE_FAVICON_PATH = "/icon.svg"
+/** Favicon de marca — `public/images/favi.png`, servido vía `src/app/icon.png`. */
+export const SITE_FAVICON_PATH = "/icon.png"
 
 /** Imagen Open Graph por defecto (URL absoluta para crawlers). */
 export const DEFAULT_OG_IMAGE =
@@ -316,6 +316,41 @@ export const GOOGLE_REVIEWS_URL =
 export const ORGANIZATION_SAME_AS = SOCIAL_LINKS.filter(
   (link) => link.id !== "whatsapp",
 ).map((link) => link.href)
+
+/** Agente Mastra remoto (`vendedor-agent`) para el chat del sitio. */
+export const MASTRA_AGENT_GENERATE_URL =
+  process.env.MASTRA_AGENT_GENERATE_URL ??
+  "https://whatsapp.server.mastra.cloud/api/agents/vendedor-agent/generate"
+
+export const CHAT_API_PATH = "/api/chat"
+
+export const CHAT_WELCOME_TITLE = "Asistente Impacto Estudio"
+
+export const CHAT_WELCOME_SUBTITLE =
+  "¿En qué puedo ayudarte a escalar tus ventas B2B?"
+
+export const CHAT_WELCOME_SUGGESTIONS = [
+  {
+    title: "Servicios de la agencia",
+    description: "Embudos, IA y presencia digital",
+    prompt: "¿Qué servicios ofrece Impacto Estudio?",
+  },
+  {
+    title: "Automatización con IA",
+    description: "Agentes conectados a tu CRM",
+    prompt: "Cuéntame sobre automatización comercial con IA",
+  },
+  {
+    title: "Agendar reunión",
+    description: "Hablar con el equipo",
+    prompt: "Quiero agendar una reunión para conocer más",
+  },
+  {
+    title: "Presencia digital",
+    description: "Web y landings que convierten",
+    prompt: "¿Cómo mejoran la presencia digital de mi empresa?",
+  },
+] as const satisfies readonly import("@/lib/types").ChatWelcomeSuggestion[]
 
 export const SERVICE_CARDS = [
   {

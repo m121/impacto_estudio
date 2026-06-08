@@ -72,10 +72,23 @@ function MethodologyCycleSvg() {
 export function MethodologySection() {
   return (
     <section
-      className="border-y border-slate-200 bg-linear-to-b from-slate-100/70 via-white to-slate-50 px-4 py-16 sm:px-6 sm:py-24"
+      className="relative isolate overflow-hidden border-y border-slate-200 bg-slate-50 px-4 py-16 sm:px-6 sm:py-24"
       aria-labelledby="methodology-heading"
     >
-      <div className="mx-auto max-w-6xl">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-linear-to-b from-slate-100/80 via-white to-slate-50"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-24 left-1/4 size-80 rounded-full bg-brand-cyan/10 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-0 bottom-0 size-72 rounded-full bg-brand-pink/10 blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-6xl">
         <ScrollReveal>
           <header className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
             <p className="text-xs font-medium tracking-[0.2em] text-brand-cyan uppercase">

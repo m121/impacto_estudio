@@ -188,6 +188,12 @@ export type ChatWidgetMessage = {
   content: string
 }
 
+export type ChatWelcomeSuggestion = {
+  title: string
+  description?: string
+  prompt: string
+}
+
 export type PresenciaDigitalLandingData = {
   path: string
   metadataTitle: string

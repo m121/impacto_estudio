@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer"
 import { Navbar } from "@/components/layout/Navbar"
 import { SmoothScrollHandler } from "@/components/motion/smooth-scroll-handler"
 import { ThemeProvider } from "@/components/theme-provider"
+import { TooltipProvider } from "@/components/ui/tooltip"
 import {
   DEFAULT_OG_IMAGE,
   OG_IMAGE_ALT,
@@ -106,11 +107,13 @@ export default function RootLayout({
           }}
         />
         <ThemeProvider>
-          <SmoothScrollHandler />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <ChatWidget />
+          <TooltipProvider>
+            <SmoothScrollHandler />
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <ChatWidget />
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
