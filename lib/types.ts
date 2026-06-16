@@ -12,7 +12,8 @@ const budgetSet = new Set<string>(BUDGET_OPTIONS.map((b) => b.value))
 
 export const contactLeadSchema = z.object({
   name: z.string().min(2, "Indica un nombre válido"),
-  email: z.string().email("Introduce un email corporativo válido"),
+  phone: z.string().min(9, "Indica un teléfono válido"),
+  email: z.string().email("Introduce un email corporativo válido").optional(),
   website: z
     .string()
     .trim()
@@ -22,7 +23,7 @@ export const contactLeadSchema = z.object({
         /^https?:\/\/.+/i.test(val) ||
         /^[\w.-]+\.[a-z]{2,}.*$/i.test(val),
       { message: "Introduce una web válida (ej. https://…)" },
-    ),
+    ).optional(),
   objective: z.string().refine((v) => objectiveSet.has(v), {
     message: "Selecciona un objetivo",
   }),
@@ -228,6 +229,7 @@ export type PresenciaDigitalLandingData = {
 }
 
 export type SocialLinkId =
+  | "phone"
   | "facebook"
   | "youtube"
   | "whatsapp"

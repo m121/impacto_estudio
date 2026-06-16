@@ -45,6 +45,7 @@ export function ContactForm() {
     resolver: zodResolver(contactLeadSchema),
     defaultValues: {
       name: "",
+      phone: "",
       email: "",
       website: "",
       objective: "",
@@ -65,6 +66,7 @@ export function ContactForm() {
 
     const payload = {
       name: values.name,
+      phone: values.phone,
       email: values.email,
       website: values.website || "(no indicada)",
       objective: values.objective,
@@ -142,16 +144,34 @@ export function ContactForm() {
               )}
             />
 
+              <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Teléfono</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="tel"
+                      placeholder="555 555 555"
+                      autoComplete="tel"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email corporativo</FormLabel>
+                  <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
-                      placeholder="tu@empresa.com"
+                      placeholder="tu@email.com"
                       autoComplete="email"
                       {...field}
                     />

@@ -306,6 +306,11 @@ export const SOCIAL_LINKS = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/esteban-roa-vergara/",
   },
+  {
+    id: "phone",
+    label: "Teléfono",
+    href: "tel:34613452066",
+  }
 ] as const
 
 /** Opiniones en Google Business (enlace externo). */
@@ -406,6 +411,7 @@ export const OBJECTIVE_OPTIONS = [
 ] as const
 
 export const BUDGET_OPTIONS = [
+  { value: "otro", label: "Otro / no sé" },
   { value: "lt1k", label: "Menos de 1.000 € / mes" },
   { value: "1k-3k", label: "Entre 1.000 € y 3.000 € / mes" },
   { value: "gt3k", label: "Más de 3.000 € / mes" },
